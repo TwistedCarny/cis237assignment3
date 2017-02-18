@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace cis237assignment3
 {
-    interface IDroid
+    class JanitorDroid : UtilityDroid
     {
-        void CalculateTotalCost();
-
-        decimal TotalCost { get; set; }
-
+        public JanitorDroid(string material, string model, string color) : base(material, model, color)
+        {
+        }
     }
 }
