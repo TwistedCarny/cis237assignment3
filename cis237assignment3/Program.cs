@@ -15,7 +15,7 @@ namespace cis237assignment3
 
             ui = new UserInterface();
 
-            
+            DroidCollection droidCollection = new DroidCollection(20);
 
             while (running)
             {
@@ -24,32 +24,51 @@ namespace cis237assignment3
                 switch (userInput)
                 {
                     case 1:
-                        // Add droid
-                        ui.PrintDroidModels();
-                        string droidModel = ui.GetUserInputString();
-                        while (droidModel.ToUpper() != "PROTOCOL" || droidModel.ToUpper() != "UTILITY" || droidModel.ToUpper() != "JANITOR" || droidModel.ToUpper() != "ASTROMECH")
-                        {
-                            ui.PrintDroidModels();
-                            droidModel= ui.GetUserInputString();
-                        }
-                        
-
-                        ui.PrintDroidMaterials();
-                        string droidMaterial = ui.GetUserInputString();
-
-                        ui.Output("Enter a color:");
-                        string droidColor = ui.GetUserInputString();
+                        AddDroidMenuOption(droidCollection);
                         break;
                     case 2:
                         // List droids
+                        ui.Output(droidCollection.GetPrintString());
                         break;
-                    default:
+                    case 3:
                         // Exit program
                         running = false;
                         break;
                 }
             }
 
+        }
+
+        private static void AddDroidMenuOption(DroidCollection droids)
+        {
+            // Add droid
+            string droidModel = string.Empty;
+
+            string droidMaterial = string.Empty;
+
+            string droidColor = string.Empty;
+
+            ui.GetInfoForDroid(ref droidModel, ref droidMaterial, ref droidColor); 
+
+
+            if (droidModel.ToUpper() == "PROTOCOL")
+            {
+                int numberLanguages = 0;
+
+                ui.GetInfoForProtocolDroid(ref numberLanguages);
+
+                droids.Add(droidModel, droidMaterial, droidColor, numberLanguages);
+            }
+            else if(droidModel.ToUpper() == "UTILITY")
+            {
+                bool hasToolbox = false;
+                bool hasComputerConnection = false;
+                bool hasArm = false;
+                ui.GetInfoForUtilityDroid(ref hasToolbox, ref hasComputerConnection, ref hasArm);
+
+                droids.Add(droidModel, droidMaterial, droidColor, hasToolbox, hasComputerConnection, hasArm);
+            }
+            
         }
     }
 }

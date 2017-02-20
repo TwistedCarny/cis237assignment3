@@ -15,14 +15,53 @@ namespace cis237assignment3
             droids = new IDroid[size];
         }
 
-        public void Add(string model, string material, string color)
+        // Add Protocol droid
+        public void Add(string model, string material, string color, int numberLanguages)
         {
+            int index = SearchForEmptyIndex();
+            if(index != -1)
+            {
+                droids[index] = new ProtocolDroid(model, material, color, numberLanguages);
+            }
+            
+        }
+
+        public void Add(string model, string material, string color, bool hasToolox, bool hasComputerConnection, bool hasArm)
+        {
+            int index = SearchForEmptyIndex();
+            if (index != -1)
+            {
+                droids[index] = new UtilityDroid(model, material, color, hasToolox, hasComputerConnection, hasArm);
+            }
 
         }
 
-        public void Add(string model, string material, string color, int numberLanguages)
+        public string GetPrintString()
         {
+            string output = "";
 
+            foreach (IDroid droid in droids)
+            {
+                if (droid != null)
+                {
+                    droid.CalculateTotalCost();
+                    output += droid.ToString() + " - " + droid.TotalCost.ToString("C") + Environment.NewLine;
+                }
+            }
+            return output;
+        }
+
+        private int SearchForEmptyIndex()
+        {
+            for (int i = 0; i < droids.Length; i++)
+            {
+                if (droids[i] == null)
+                {
+                    return i; // Found empty index
+                }
+            }
+
+            return -1; // Did not find empty index
         }
 
     }

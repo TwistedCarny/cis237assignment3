@@ -30,11 +30,13 @@ namespace cis237assignment3
 
         
 
-        public Droid(string material, string model, string color)
+        public Droid(string model, string material, string color)
         {
             _material = material;
             _model = model;
             _color = color;
+
+            CalculateBaseCost(_material, _model);
         }
 
         public virtual void CalculateTotalCost()
@@ -44,7 +46,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return "Model: " + _model + " - Material: " + _material + "- Color: " + _color;
+            return "Model: " + _model + Environment.NewLine + "Material: " + _material + Environment.NewLine + "Color: " + _color;
         }
 
         public void CalculateBaseCost(string material, string model)

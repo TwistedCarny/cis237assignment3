@@ -12,19 +12,20 @@ namespace cis237assignment3
 
         private const decimal COST_PER_LANGUAGE = 20m;
 
-        public ProtocolDroid(string material, string model, string color, int numberLanguages) : base(material, model, color)
+        public ProtocolDroid(string model, string material, string color, int numberLanguages) : base(model, material, color)
         {
             _numberLanguages = numberLanguages;
         }
 
         public override void CalculateTotalCost()
         {
+            base.CalculateTotalCost();
             TotalCost += _numberLanguages * COST_PER_LANGUAGE;
         }
 
         public override string ToString()
         {
-            return base.ToString() + " - # Languages: " + _numberLanguages.ToString();
+            return base.ToString() + Environment.NewLine + "# Languages: " + _numberLanguages.ToString();
         }
 
     }

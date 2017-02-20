@@ -8,7 +8,7 @@ namespace cis237assignment3
 {
     class AstromechDroid : UtilityDroid
     {
-        public AstromechDroid(string material, string model, string color) : base(material, model, color)
+        public AstromechDroid(string model, string material, string color, bool toolbox, bool computerConnection, bool arm) : base(model, material, color, toolbox, computerConnection, arm)
         {
         }
     }
