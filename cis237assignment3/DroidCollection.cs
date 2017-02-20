@@ -26,14 +26,25 @@ namespace cis237assignment3
             
         }
 
-        public void Add(string model, string material, string color, bool hasToolox, bool hasComputerConnection, bool hasArm)
+        // Add utility droid
+        public void Add(string model, string material, string color, bool hasToolbox, bool hasComputerConnection, bool hasArm)
         {
             int index = SearchForEmptyIndex();
             if (index != -1)
             {
-                droids[index] = new UtilityDroid(model, material, color, hasToolox, hasComputerConnection, hasArm);
+                droids[index] = new UtilityDroid(model, material, color, hasToolbox, hasComputerConnection, hasArm);
             }
 
+        }
+
+        // Add Janitor droid
+        public void Add(string model, string material, string color, bool hasToolbox, bool hasComputerConnection, bool hasArm, bool hasTrashCompactor, bool hasVacuum)
+        {
+            int index = SearchForEmptyIndex();
+            if (index != -1)
+            {
+                droids[index] = new JanitorDroid(model, material, color, hasToolbox, hasComputerConnection, hasArm, hasTrashCompactor, hasVacuum);
+            }
         }
 
         public string GetPrintString()

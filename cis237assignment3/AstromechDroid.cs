@@ -8,8 +8,25 @@ namespace cis237assignment3
 {
     class AstromechDroid : UtilityDroid
     {
-        public AstromechDroid(string model, string material, string color, bool toolbox, bool computerConnection, bool arm) : base(model, material, color, toolbox, computerConnection, arm)
+        private bool _hasFireExtinquisher;
+        private int _numberShips;
+
+        private const decimal COST_PER_SHIP = 25m;
+
+        public AstromechDroid(string model, string material, string color, bool toolbox, bool computerConnection, bool arm, bool fireExtinquisher, int numberShips) : base(model, material, color, toolbox, computerConnection, arm)
         {
+            _hasFireExtinquisher = fireExtinquisher;
+            _numberShips = numberShips;
+        }
+
+        public override void CalculateTotalCost()
+        {
+            base.CalculateTotalCost();
+            if (_hasFireExtinquisher)
+            {
+                TotalCost += 60m;
+            }
+            TotalCost += _numberShips * COST_PER_SHIP;
         }
     }
 }
