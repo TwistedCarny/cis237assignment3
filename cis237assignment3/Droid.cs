@@ -39,8 +39,9 @@ namespace cis237assignment3
             }
         }
 
-        
 
+
+        // Constructor for droid. Base cost for droid is calculated when a new instance is instantiated 
         public Droid(string model, string material, string color)
         {
             _material = material;
@@ -50,16 +51,20 @@ namespace cis237assignment3
             CalculateBaseCost(_material, _model);
         }
 
+        // Calculate the total cost of the droid. Can be overriden by children.
         public virtual void CalculateTotalCost()
         {
             _totalCost = _baseCost;
         }
 
+        // Gets info related to the droid for output to user
         public override string ToString()
         {
             return "Model: " + _model + Environment.NewLine + "Material: " + _material + Environment.NewLine + "Color: " + _color + Environment.NewLine;
         }
 
+
+        // Calculate the base cost of the droid based on which model and material was selected
         public void CalculateBaseCost(string material, string model)
         {
             switch (model)
