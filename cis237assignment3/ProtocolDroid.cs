@@ -25,7 +25,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return base.ToString() + Environment.NewLine + "# Languages: " + _numberLanguages.ToString();
+            return base.ToString() + "# Languages: " + _numberLanguages.ToString();
         }
 
     }

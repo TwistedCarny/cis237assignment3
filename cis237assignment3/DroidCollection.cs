@@ -47,18 +47,40 @@ namespace cis237assignment3
             }
         }
 
+        // Add Astromech droid
+        public void Add(string model, string material, string color, bool hasToolbox, bool hasComputerConnection, bool hasArm, bool hasFireExtinquisher, int numberShips)
+        {
+            int index = SearchForEmptyIndex();
+            if (index != -1)
+            {
+                droids[index] = new AstromechDroid(model, material, color, hasToolbox, hasComputerConnection, hasArm, hasFireExtinquisher, numberShips);
+            }
+        }
+
         public string GetPrintString()
         {
-            string output = "";
+            string output = string.Empty;
 
             foreach (IDroid droid in droids)
             {
                 if (droid != null)
                 {
                     droid.CalculateTotalCost();
-                    output += droid.ToString() + " - " + droid.TotalCost.ToString("C") + Environment.NewLine;
+
+                    output += "---------------------------" + 
+                        Environment.NewLine +
+                        droid.ToString() + 
+                        Environment.NewLine +
+                         "Total Cost: " +droid.TotalCost.ToString("C") +
+                        Environment.NewLine +
+                        "---------------------------";
                 }
             }
+            if(output == string.Empty)
+            {
+                output = "No droids found in list...";
+            }
+
             return output;
         }
 

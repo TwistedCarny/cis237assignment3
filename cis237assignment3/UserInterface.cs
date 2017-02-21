@@ -17,7 +17,6 @@ namespace cis237assignment3
             }
 
             return result;
-
         }
 
         public string GetUserInputString()
@@ -28,6 +27,7 @@ namespace cis237assignment3
 
         public void PrintDroidModels()
         {
+            ClearScreen();
             Output("Enter the name of a droid model from this list:");
             Output("Protocol");
             Output("Utility");
@@ -37,6 +37,7 @@ namespace cis237assignment3
 
         public void PrintDroidMaterials()
         {
+            ClearScreen();
             Output("Enter the type of material from this list:");
             Output("Titanium");
             Output("Gold");
@@ -45,54 +46,17 @@ namespace cis237assignment3
 
         public void GetInfoForUtilityDroid(ref bool hasToolbox, ref bool hasComputerConnection, ref bool hasArm)
         {
+            ClearScreen();
             Output("Does the droid have a toolbox? TRUE:FALSE");
-            string response = GetUserInputString();
-            while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
-            {
-                PrintInvalidSelectionMessage();
-            }
+            hasComputerConnection = GetTrueFalseResponse();
 
-
-            if (response.ToUpper() == "TRUE")
-            {
-                hasToolbox = true;
-            }
-            else
-            {
-                hasToolbox = false;
-            }
-
+            ClearScreen();
             Output("Does the droid have a computer connection? TRUE:FALSE");
-            response = GetUserInputString();
-            while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
-            {
-                PrintInvalidSelectionMessage();
-            }
+            hasComputerConnection = GetTrueFalseResponse();
 
-            if (response.ToUpper() == "TRUE")
-            {
-                hasComputerConnection = true;
-            }
-            else
-            {
-                hasComputerConnection = false;
-            }
-
+            ClearScreen();
             Output("Does the droid have arms? TRUE:FALSE");
-            response = GetUserInputString();
-            while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
-            {
-                PrintInvalidSelectionMessage();
-            }
-
-            if (response.ToUpper() == "TRUE")
-            {
-                hasArm = true;
-            }
-            else
-            {
-                hasArm = false;
-            }
+            hasArm = GetTrueFalseResponse();
         }
 
         public void GetInfoForDroid(ref string droidModel, ref string droidMaterial, ref string droidColor)
@@ -118,26 +82,77 @@ namespace cis237assignment3
                 droidMaterial = GetUserInputString();
             }
 
+            ClearScreen();
             Output("Enter a color:");
             droidColor = GetUserInputString();
         }
 
         public void GetInfoForProtocolDroid(ref int numberLanguages)
         {
+            ClearScreen();
             Output("Enter # of languages:");
             numberLanguages = GetUserInput();
         }
 
+        public void GetInfoForJanitorDroid(ref bool hasTrashCompactor, ref bool hasVacuum)
+        {
+            ClearScreen();
+            Output("Does the droid have a trash compactor? TRUE:FALSE");
+            hasTrashCompactor = GetTrueFalseResponse();
+
+            ClearScreen();
+            Output("Does the droid have a vacuum? TRUE:FALSE");
+            hasVacuum = GetTrueFalseResponse();
+        }
+
+        public void GetInfoForAstromechDroid(ref bool hasFireExtinquisher, ref int numberShips)
+        {
+            ClearScreen();
+            Output("Does the droid have a fire extinquisher? TRUE:FALSE");
+            hasFireExtinquisher = GetTrueFalseResponse();
+
+            ClearScreen();
+            Output("Enter # of ships: ");
+            numberShips = GetUserInput();
+        }
+
+        public bool GetTrueFalseResponse()
+        {
+            string response = GetUserInputString();
+            while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
+            {
+                PrintInvalidSelectionMessage();
+                response = GetUserInputString();
+            }
+
+            if (response.ToUpper() == "TRUE")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void PrintMenu()
         {
+            ClearScreen();
             Output("1 - Add Droid");
             Output("2 - List Droids");
             Output("3 - Exit");
         }
 
+        public void PrintSuccessfulAddDroidMessage()
+        {
+            Output("Droid was added successfully... Press Enter to continue...");
+            WaitForInput();
+        }
+
         public void PrintInvalidSelectionMessage()
         {
-            Output("Invalid selection... Please enter a valid number.");
+            Output("Invalid selection... Press enter to continue...");
+            WaitForInput();
         }
 
         public void Output(string output)
@@ -148,6 +163,11 @@ namespace cis237assignment3
         public void ClearScreen()
         {
             Console.Clear();
+        }
+
+        public void WaitForInput()
+        {
+            Console.ReadLine();
         }
     }
 }

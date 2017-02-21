@@ -44,7 +44,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return base.ToString() + " - " + "Has toolbox: " + _hasToolbox + " - " + "Has computer connection: " + _hasComputerConnection + " - " + "Has arm: " + _hasArm;
+            return base.ToString() + "Has toolbox: " + _hasToolbox + Environment.NewLine + "Has computer connection: " + _hasComputerConnection + Environment.NewLine + "Has arm: " + _hasArm + Environment.NewLine;
         }
     }
 }

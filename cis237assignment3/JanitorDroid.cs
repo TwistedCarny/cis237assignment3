@@ -33,5 +33,10 @@ namespace cis237assignment3
                 TotalCost += VACUUM_COST;
             }
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + "Has trash compactor: " + _hasTrashCompactor + Environment.NewLine + "Has vacuum: " + _hasVacuum;
+        }
     }
 }
