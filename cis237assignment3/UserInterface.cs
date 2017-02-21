@@ -8,12 +8,15 @@ namespace cis237assignment3
 {
     class UserInterface
     {
-        public int GetUserInput()
+        public int GetUserInput(string message)
         {
+            Output(message);
             int result;
             while(!int.TryParse(Console.ReadLine(), out result))
             {
                 PrintInvalidSelectionMessage();
+                ClearScreen();
+                Output(message);
             }
 
             return result;
@@ -47,16 +50,16 @@ namespace cis237assignment3
         public void GetInfoForUtilityDroid(ref bool hasToolbox, ref bool hasComputerConnection, ref bool hasArm)
         {
             ClearScreen();
-            Output("Does the droid have a toolbox? TRUE:FALSE");
-            hasComputerConnection = GetTrueFalseResponse();
+            string message = "Does the droid have a toolbox? TRUE:FALSE";
+            hasComputerConnection = GetTrueFalseResponse(message);
 
             ClearScreen();
-            Output("Does the droid have a computer connection? TRUE:FALSE");
-            hasComputerConnection = GetTrueFalseResponse();
+            message = "Does the droid have a computer connection? TRUE:FALSE";
+            hasComputerConnection = GetTrueFalseResponse(message);
 
             ClearScreen();
-            Output("Does the droid have arms? TRUE:FALSE");
-            hasArm = GetTrueFalseResponse();
+            message = "Does the droid have arms? TRUE:FALSE";
+            hasArm = GetTrueFalseResponse(message);
         }
 
         public void GetInfoForDroid(ref string droidModel, ref string droidMaterial, ref string droidColor)
@@ -90,38 +93,41 @@ namespace cis237assignment3
         public void GetInfoForProtocolDroid(ref int numberLanguages)
         {
             ClearScreen();
-            Output("Enter # of languages:");
-            numberLanguages = GetUserInput();
+            string message = "Enter # of languages:";
+            numberLanguages = GetUserInput(message);
         }
 
         public void GetInfoForJanitorDroid(ref bool hasTrashCompactor, ref bool hasVacuum)
         {
             ClearScreen();
-            Output("Does the droid have a trash compactor? TRUE:FALSE");
-            hasTrashCompactor = GetTrueFalseResponse();
+            string message = "Does the droid have a trash compactor? TRUE:FALSE";
+            hasTrashCompactor = GetTrueFalseResponse(message);
 
             ClearScreen();
-            Output("Does the droid have a vacuum? TRUE:FALSE");
-            hasVacuum = GetTrueFalseResponse();
+            message = "Does the droid have a vacuum? TRUE:FALSE";
+            hasVacuum = GetTrueFalseResponse(message);
         }
 
         public void GetInfoForAstromechDroid(ref bool hasFireExtinquisher, ref int numberShips)
         {
             ClearScreen();
-            Output("Does the droid have a fire extinquisher? TRUE:FALSE");
-            hasFireExtinquisher = GetTrueFalseResponse();
+            string message = "Does the droid have a fire extinquisher? TRUE:FALSE";
+            hasFireExtinquisher = GetTrueFalseResponse(message);
 
             ClearScreen();
-            Output("Enter # of ships: ");
-            numberShips = GetUserInput();
+            message = "Enter # of ships: ";
+            numberShips = GetUserInput(message);
         }
 
-        public bool GetTrueFalseResponse()
+        public bool GetTrueFalseResponse(string message)
         {
+            Output(message);
             string response = GetUserInputString();
             while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
             {
                 PrintInvalidSelectionMessage();
+                ClearScreen();
+                Output(message);
                 response = GetUserInputString();
             }
 
@@ -135,22 +141,23 @@ namespace cis237assignment3
             }
         }
 
-        public void PrintMenu()
+        public string GetPrintMainMenu()
         {
-            ClearScreen();
-            Output("1 - Add Droid");
-            Output("2 - List Droids");
-            Output("3 - Exit");
+            return "1 - Add Droid" + Environment.NewLine +
+                   "2 - List Droids" + Environment.NewLine +
+                   "3 - Exit";
         }
 
         public void PrintSuccessfulAddDroidMessage()
         {
+            ClearScreen();
             Output("Droid was added successfully... Press Enter to continue...");
             WaitForInput();
         }
 
         public void PrintInvalidSelectionMessage()
         {
+            ClearScreen();
             Output("Invalid selection... Press enter to continue...");
             WaitForInput();
         }

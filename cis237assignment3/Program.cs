@@ -19,8 +19,8 @@ namespace cis237assignment3
 
             while (running)
             {
-                ui.PrintMenu();
-                int userInput = ui.GetUserInput();
+                ui.ClearScreen();
+                int userInput = ui.GetUserInput(ui.GetPrintMainMenu());
                 switch (userInput)
                 {
                     case 1:
