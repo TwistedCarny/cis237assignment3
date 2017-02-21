@@ -30,5 +30,10 @@ namespace cis237assignment3
                 TotalCost += 20m;
             }
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + "Has trash compactor: " + _hasTrashCompactor + Environment.NewLine + "Has vacuum: " + _hasVacuum;
+        }
     }
 }

@@ -48,6 +48,10 @@ namespace cis237assignment3
 
             string droidColor = string.Empty;
 
+            bool hasToolbox = false;
+            bool hasComputerConnection = false;
+            bool hasArm = false;
+
             ui.GetInfoForDroid(ref droidModel, ref droidMaterial, ref droidColor); 
 
 
@@ -61,12 +65,21 @@ namespace cis237assignment3
             }
             else if(droidModel.ToUpper() == "UTILITY")
             {
-                bool hasToolbox = false;
-                bool hasComputerConnection = false;
-                bool hasArm = false;
+                
                 ui.GetInfoForUtilityDroid(ref hasToolbox, ref hasComputerConnection, ref hasArm);
 
                 droids.Add(droidModel, droidMaterial, droidColor, hasToolbox, hasComputerConnection, hasArm);
+            }
+            else if(droidModel.ToUpper() == "JANITOR")
+            {
+                ui.GetInfoForUtilityDroid(ref hasToolbox, ref hasComputerConnection, ref hasArm);
+
+                bool hasTrashcompactor = false;
+                bool hasVacuum = false;
+
+                ui.GetInfoForJanitorDroid(ref hasTrashcompactor, ref hasVacuum);
+
+                droids.Add(droidModel, droidMaterial, droidColor, hasToolbox, hasComputerConnection, hasArm, hasTrashcompactor, hasVacuum);
             }
             
         }

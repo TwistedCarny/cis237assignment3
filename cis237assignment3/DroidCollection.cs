@@ -56,7 +56,14 @@ namespace cis237assignment3
                 if (droid != null)
                 {
                     droid.CalculateTotalCost();
-                    output += droid.ToString() + " - " + droid.TotalCost.ToString("C") + Environment.NewLine;
+
+                    output += "---------------------------" + 
+                        Environment.NewLine +
+                        droid.ToString() + 
+                        Environment.NewLine +
+                         "Total Cost: " +droid.TotalCost.ToString("C") +
+                        Environment.NewLine +
+                        "---------------------------";
                 }
             }
             return output;

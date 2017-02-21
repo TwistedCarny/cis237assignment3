@@ -46,7 +46,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return "Model: " + _model + Environment.NewLine + "Material: " + _material + Environment.NewLine + "Color: " + _color;
+            return "Model: " + _model + Environment.NewLine + "Material: " + _material + Environment.NewLine + "Color: " + _color + Environment.NewLine;
         }
 
         public void CalculateBaseCost(string material, string model)

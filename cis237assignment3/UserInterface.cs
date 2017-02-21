@@ -17,7 +17,6 @@ namespace cis237assignment3
             }
 
             return result;
-
         }
 
         public string GetUserInputString()
@@ -46,53 +45,13 @@ namespace cis237assignment3
         public void GetInfoForUtilityDroid(ref bool hasToolbox, ref bool hasComputerConnection, ref bool hasArm)
         {
             Output("Does the droid have a toolbox? TRUE:FALSE");
-            string response = GetUserInputString();
-            while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
-            {
-                PrintInvalidSelectionMessage();
-            }
-
-
-            if (response.ToUpper() == "TRUE")
-            {
-                hasToolbox = true;
-            }
-            else
-            {
-                hasToolbox = false;
-            }
+            hasComputerConnection = GetTrueFalseResponse();
 
             Output("Does the droid have a computer connection? TRUE:FALSE");
-            response = GetUserInputString();
-            while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
-            {
-                PrintInvalidSelectionMessage();
-            }
-
-            if (response.ToUpper() == "TRUE")
-            {
-                hasComputerConnection = true;
-            }
-            else
-            {
-                hasComputerConnection = false;
-            }
+            hasComputerConnection = GetTrueFalseResponse();
 
             Output("Does the droid have arms? TRUE:FALSE");
-            response = GetUserInputString();
-            while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
-            {
-                PrintInvalidSelectionMessage();
-            }
-
-            if (response.ToUpper() == "TRUE")
-            {
-                hasArm = true;
-            }
-            else
-            {
-                hasArm = false;
-            }
+            hasArm = GetTrueFalseResponse();
         }
 
         public void GetInfoForDroid(ref string droidModel, ref string droidMaterial, ref string droidColor)
@@ -126,6 +85,34 @@ namespace cis237assignment3
         {
             Output("Enter # of languages:");
             numberLanguages = GetUserInput();
+        }
+
+        public void GetInfoForJanitorDroid(ref bool hasTrashCompactor, ref bool hasVacuum)
+        {
+            Output("Does the droid have a trash compactor? TRUE:FALSE");
+            hasTrashCompactor = GetTrueFalseResponse();
+
+            Output("Does the droid have a vacuum? TRUE:FALSE");
+            hasVacuum = GetTrueFalseResponse();
+        }
+
+        public bool GetTrueFalseResponse()
+        {
+            string response = GetUserInputString();
+            while (response.ToUpper() != "TRUE" && response.ToUpper() != "FALSE")
+            {
+                PrintInvalidSelectionMessage();
+                response = GetUserInputString();
+            }
+
+            if (response.ToUpper() == "TRUE")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void PrintMenu()
