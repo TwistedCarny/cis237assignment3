@@ -17,7 +17,7 @@ namespace cis237assignment3
             droids = new IDroid[size];
         }
 
-        // Add Protocol droid
+        // Add Protocol droid to the array
         public void Add(string model, string material, string color, int numberLanguages)
         {
             int index = SearchForEmptyIndex();
@@ -28,7 +28,7 @@ namespace cis237assignment3
             
         }
 
-        // Add utility droid
+        // Add utility droid to the array
         public void Add(string model, string material, string color, bool hasToolbox, bool hasComputerConnection, bool hasArm)
         {
             int index = SearchForEmptyIndex();
@@ -39,7 +39,7 @@ namespace cis237assignment3
 
         }
 
-        // Add Janitor droid
+        // Add Janitor droid to the array
         public void Add(string model, string material, string color, bool hasToolbox, bool hasComputerConnection, bool hasArm, bool hasTrashCompactor, bool hasVacuum)
         {
             int index = SearchForEmptyIndex();
@@ -49,7 +49,7 @@ namespace cis237assignment3
             }
         }
 
-        // Add Astromech droid
+        // Add Astromech droid to the array
         public void Add(string model, string material, string color, bool hasToolbox, bool hasComputerConnection, bool hasArm, bool hasFireExtinquisher, int numberShips)
         {
             int index = SearchForEmptyIndex();
@@ -59,6 +59,7 @@ namespace cis237assignment3
             }
         }
 
+        // Build a string to output to the user containing all of the droids in the droid array
         public string GetPrintString()
         {
             string output = string.Empty;
@@ -86,6 +87,7 @@ namespace cis237assignment3
             return output;
         }
 
+        // Search for empty index in array
         private int SearchForEmptyIndex()
         {
             for (int i = 0; i < droids.Length; i++)
