@@ -13,6 +13,8 @@ namespace cis237assignment3
 
         private const decimal COST_PER_SHIP = 25m;
 
+        private const decimal FIRE_EXTINQUISHER_COST = 60m;
+
         public AstromechDroid(string model, string material, string color, bool toolbox, bool computerConnection, bool arm, bool fireExtinquisher, int numberShips) : base(model, material, color, toolbox, computerConnection, arm)
         {
             _hasFireExtinquisher = fireExtinquisher;
@@ -24,7 +26,7 @@ namespace cis237assignment3
             base.CalculateTotalCost();
             if (_hasFireExtinquisher)
             {
-                TotalCost += 60m;
+                TotalCost += FIRE_EXTINQUISHER_COST;
             }
             TotalCost += _numberShips * COST_PER_SHIP;
         }

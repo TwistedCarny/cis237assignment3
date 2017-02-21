@@ -11,6 +11,9 @@ namespace cis237assignment3
         private bool _hasTrashCompactor;
         private bool _hasVacuum;
 
+        private const decimal TRASH_COMPACTOR_COST = 30m;
+        private const decimal VACUUM_COST = 20m;
+
         public JanitorDroid(string model, string material, string color, bool toolbox, bool computerConnection, bool arm, bool trashCompactor, bool vacuum) : base(model, material, color, toolbox, computerConnection, arm)
         {
             _hasTrashCompactor = trashCompactor;
@@ -22,12 +25,12 @@ namespace cis237assignment3
             base.CalculateTotalCost();
             if (_hasTrashCompactor)
             {
-                TotalCost += 30m;
+                TotalCost += TRASH_COMPACTOR_COST;
             }
 
             if (_hasVacuum)
             {
-                TotalCost += 20m;
+                TotalCost += VACUUM_COST;
             }
         }
     }

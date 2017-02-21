@@ -15,6 +15,15 @@ namespace cis237assignment3
         private decimal _baseCost;
         private decimal _totalCost;
 
+        private const decimal PROTOCOL_MODEL_COST = 80m;
+        private const decimal UTILITY_MODEL_COST = 100m;
+        private const decimal JANITOR_MODEL_COST = 120m;
+        private const decimal ASTROMECH_MODEL_COST = 150m;
+
+        private const decimal TITANIUM_MATERIAL_COST = 50m;
+        private const decimal GOLD_MATERIAL_COST = 80m;
+        private const decimal STEEL_MATERIAL_COST = 20m;
+
         public decimal TotalCost
         {
             get
@@ -54,29 +63,29 @@ namespace cis237assignment3
             switch (model)
             {
                 case "protocol":
-                    _baseCost = 80m;
+                    _baseCost = PROTOCOL_MODEL_COST;
                     break;
                 case "utility":
-                    _baseCost = 100m;
+                    _baseCost = UTILITY_MODEL_COST;
                     break;
                 case "janitor":
-                    _baseCost = 120m;
+                    _baseCost = JANITOR_MODEL_COST;
                     break;
                 case "astromech":
-                    _baseCost = 150m;
+                    _baseCost = ASTROMECH_MODEL_COST;
                     break;
             }
 
             switch (material)
             {
                 case "titanium":
-                    _baseCost += 50m;
+                    _baseCost += TITANIUM_MATERIAL_COST;
                     break;
                 case "gold":
-                    _baseCost += 80m;
+                    _baseCost += GOLD_MATERIAL_COST;
                     break;
                 case "steel":
-                    _baseCost += 20m;
+                    _baseCost += STEEL_MATERIAL_COST;
                     break;
             }
         }

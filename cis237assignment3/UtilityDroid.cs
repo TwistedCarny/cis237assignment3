@@ -12,6 +12,10 @@ namespace cis237assignment3
         private bool _hasComputerConnection;
         private bool _hasArm;
 
+        private const decimal TOOLBOX_COST = 10m;
+        private const decimal COMPUTER_CONNECTION_COST = 50m;
+        private const decimal ARM_COST = 25;
+
         public UtilityDroid(string model, string material, string color, bool toolbox, bool computerConnection, bool arm) : base(model, material, color)
         {
             _hasToolbox = toolbox;
@@ -24,17 +28,17 @@ namespace cis237assignment3
             base.CalculateTotalCost();
             if (_hasToolbox)
             {
-                TotalCost += 10;
+                TotalCost += TOOLBOX_COST;
             }
 
             if (_hasComputerConnection)
             {
-                TotalCost += 50;
+                TotalCost += COMPUTER_CONNECTION_COST;
             }
 
             if (_hasArm)
             {
-                TotalCost += 25;
+                TotalCost += ARM_COST;
             }
         }
 
