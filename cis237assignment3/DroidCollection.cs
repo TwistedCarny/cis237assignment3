@@ -47,6 +47,16 @@ namespace cis237assignment3
             }
         }
 
+        // Add Astromech droid
+        public void Add(string model, string material, string color, bool hasToolbox, bool hasComputerConnection, bool hasArm, bool hasFireExtinquisher, int numberShips)
+        {
+            int index = SearchForEmptyIndex();
+            if (index != -1)
+            {
+                droids[index] = new AstromechDroid(model, material, color, hasToolbox, hasComputerConnection, hasArm, hasFireExtinquisher, numberShips);
+            }
+        }
+
         public string GetPrintString()
         {
             string output = "";

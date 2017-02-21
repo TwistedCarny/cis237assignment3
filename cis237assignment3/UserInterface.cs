@@ -96,6 +96,15 @@ namespace cis237assignment3
             hasVacuum = GetTrueFalseResponse();
         }
 
+        public void GetInfoForAstromechDroid(ref bool hasFireExtinquisher, ref int numberShips)
+        {
+            Output("Does the droid have a fire extinquisher? TRUE:FALSE");
+            hasFireExtinquisher = GetTrueFalseResponse();
+
+            Output("Enter # of ships: ");
+            numberShips = GetUserInput();
+        }
+
         public bool GetTrueFalseResponse()
         {
             string response = GetUserInputString();

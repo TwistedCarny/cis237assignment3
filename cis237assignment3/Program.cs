@@ -81,6 +81,17 @@ namespace cis237assignment3
 
                 droids.Add(droidModel, droidMaterial, droidColor, hasToolbox, hasComputerConnection, hasArm, hasTrashcompactor, hasVacuum);
             }
+            else if(droidModel.ToUpper() == "ASTROMECH")
+            {
+                ui.GetInfoForUtilityDroid(ref hasToolbox, ref hasComputerConnection, ref hasArm);
+
+                bool hasFireExtinquisher = false;
+                int numberShips = 0;
+
+                ui.GetInfoForAstromechDroid(ref hasFireExtinquisher, ref numberShips);
+
+                droids.Add(droidModel, droidMaterial, droidColor, hasToolbox, hasComputerConnection, hasArm, hasFireExtinquisher, numberShips);
+            }
             
         }
     }

@@ -31,7 +31,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return base.ToString() + "Has fire extinquisher: " + _hasFireExtinquisher + Environment.NewLine + "# Ships" + _numberShips.ToString();
+            return base.ToString() + "Has fire extinquisher: " + _hasFireExtinquisher + Environment.NewLine + "# Ships: " + _numberShips.ToString();
         }
     }
 }
