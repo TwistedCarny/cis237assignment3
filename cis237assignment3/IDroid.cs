@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace cis237assignment3
 {
+    // Interface that all droids implement
     interface IDroid
     {
         void CalculateTotalCost();

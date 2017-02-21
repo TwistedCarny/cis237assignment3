@@ -44,6 +44,7 @@ namespace cis237assignment3
 
         }
 
+        // Handles getting info from user and adding droid to collection
         private static void AddDroidMenuOption(DroidCollection droids)
         {
             // Add droid

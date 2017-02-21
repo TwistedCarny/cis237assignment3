@@ -23,6 +23,7 @@ namespace cis237assignment3
             _numberShips = numberShips;
         }
 
+        // Claculate the total cost of the droid. Makes the base calculations in the parent class and performs the specific calculations in this class.
         public override void CalculateTotalCost()
         {
             base.CalculateTotalCost();
@@ -33,6 +34,7 @@ namespace cis237assignment3
             TotalCost += _numberShips * COST_PER_SHIP;
         }
 
+        // Gets info related to the droid for output to user
         public override string ToString()
         {
             return base.ToString() + "Has fire extinquisher: " + _hasFireExtinquisher + Environment.NewLine + "# Ships: " + _numberShips.ToString();

@@ -25,6 +25,7 @@ namespace cis237assignment3
             _hasArm = arm;
         }
 
+        // Claculate the total cost of the droid. Makes the base calculations in the parent class and performs the specific calculations in this class.
         public override void CalculateTotalCost()
         {
             base.CalculateTotalCost();
@@ -44,6 +45,7 @@ namespace cis237assignment3
             }
         }
 
+        // Gets info related to the droid for output to user
         public override string ToString()
         {
             return base.ToString() + "Has toolbox: " + _hasToolbox + Environment.NewLine + "Has computer connection: " + _hasComputerConnection + Environment.NewLine + "Has arm: " + _hasArm + Environment.NewLine;
