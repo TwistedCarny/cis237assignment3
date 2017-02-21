@@ -28,7 +28,10 @@ namespace cis237assignment3
                         break;
                     case 2:
                         // List droids
+                        ui.ClearScreen();
                         ui.Output(droidCollection.GetPrintString());
+                        ui.Output("Press enter to continue...");
+                        ui.WaitForInput();
                         break;
                     case 3:
                         // Exit program
@@ -42,6 +45,7 @@ namespace cis237assignment3
         private static void AddDroidMenuOption(DroidCollection droids)
         {
             // Add droid
+            ui.ClearScreen();
             string droidModel = string.Empty;
 
             string droidMaterial = string.Empty;
@@ -91,7 +95,10 @@ namespace cis237assignment3
                 ui.GetInfoForAstromechDroid(ref hasFireExtinquisher, ref numberShips);
 
                 droids.Add(droidModel, droidMaterial, droidColor, hasToolbox, hasComputerConnection, hasArm, hasFireExtinquisher, numberShips);
+
             }
+
+            ui.PrintSuccessfulAddDroidMessage();
             
         }
     }

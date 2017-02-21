@@ -59,7 +59,7 @@ namespace cis237assignment3
 
         public string GetPrintString()
         {
-            string output = "";
+            string output = string.Empty;
 
             foreach (IDroid droid in droids)
             {
@@ -76,6 +76,11 @@ namespace cis237assignment3
                         "---------------------------";
                 }
             }
+            if(output == string.Empty)
+            {
+                output = "No droids found in list...";
+            }
+
             return output;
         }
 
