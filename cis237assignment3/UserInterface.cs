@@ -8,11 +8,13 @@ namespace cis237assignment3
 {
     class UserInterface
     {
+
+        // Get input from the user in the form of an int
         public int GetUserInput(string message)
         {
             Output(message);
             int result;
-            while(!int.TryParse(Console.ReadLine(), out result))
+            while(!int.TryParse(Console.ReadLine(), out result)) // try to get input from user until they enter a number
             {
                 PrintInvalidSelectionMessage();
                 ClearScreen();
@@ -22,13 +24,15 @@ namespace cis237assignment3
             return result;
         }
 
+        // Get input from user in the form of a string
         public string GetUserInputString()
         {
             return Console.ReadLine();
 
         }
 
-        public void PrintDroidModels()
+        // Output list of droids to choose from
+        public void PrintDroidModels() 
         {
             ClearScreen();
             Output("Enter the name of a droid model from this list:");
@@ -38,6 +42,7 @@ namespace cis237assignment3
             Output("Astromech");
         }
 
+        // Output list of droid materials
         public void PrintDroidMaterials()
         {
             ClearScreen();
@@ -47,7 +52,8 @@ namespace cis237assignment3
             Output("Steel");
         }
 
-        public void GetInfoForUtilityDroid(ref bool hasToolbox, ref bool hasComputerConnection, ref bool hasArm)
+        // Get the info related to the utility droid
+        public void GetInfoForUtilityDroid(ref bool hasToolbox, ref bool hasComputerConnection, ref bool hasArm) 
         {
             ClearScreen();
             string message = "Does the droid have a toolbox? TRUE:FALSE";
@@ -62,6 +68,7 @@ namespace cis237assignment3
             hasArm = GetTrueFalseResponse(message);
         }
 
+        // Get the info related to the base droid that every droid inherits from
         public void GetInfoForDroid(ref string droidModel, ref string droidMaterial, ref string droidColor)
         {
             PrintDroidModels();
@@ -90,6 +97,7 @@ namespace cis237assignment3
             droidColor = GetUserInputString();
         }
 
+        // Get info related to the protocol droid
         public void GetInfoForProtocolDroid(ref int numberLanguages)
         {
             ClearScreen();
@@ -97,6 +105,7 @@ namespace cis237assignment3
             numberLanguages = GetUserInput(message);
         }
 
+        // Get info related to the janitor droid
         public void GetInfoForJanitorDroid(ref bool hasTrashCompactor, ref bool hasVacuum)
         {
             ClearScreen();
@@ -108,6 +117,7 @@ namespace cis237assignment3
             hasVacuum = GetTrueFalseResponse(message);
         }
 
+        // Get info related to the astromech droid
         public void GetInfoForAstromechDroid(ref bool hasFireExtinquisher, ref int numberShips)
         {
             ClearScreen();
@@ -119,6 +129,7 @@ namespace cis237assignment3
             numberShips = GetUserInput(message);
         }
 
+        // Get a response from the user in the form of a TRUE or FALSE
         public bool GetTrueFalseResponse(string message)
         {
             Output(message);
@@ -141,6 +152,7 @@ namespace cis237assignment3
             }
         }
 
+        // Returns a string that contains the main menu of the program
         public string GetPrintMainMenu()
         {
             return "1 - Add Droid" + Environment.NewLine +
@@ -148,6 +160,7 @@ namespace cis237assignment3
                    "3 - Exit";
         }
 
+        // Print message letting the user know that a droid was added sucessfully
         public void PrintSuccessfulAddDroidMessage()
         {
             ClearScreen();
@@ -155,6 +168,7 @@ namespace cis237assignment3
             WaitForInput();
         }
 
+        // Print message telling the user that they didn't make a valid selection 
         public void PrintInvalidSelectionMessage()
         {
             ClearScreen();
@@ -162,16 +176,19 @@ namespace cis237assignment3
             WaitForInput();
         }
 
+        // Output text to the console
         public void Output(string output)
         {
             Console.WriteLine(output);
         }
 
+        // Clear the console
         public void ClearScreen()
         {
             Console.Clear();
         }
 
+        // Wait for input from user... used for waiting until the user presses enter.
         public void WaitForInput()
         {
             Console.ReadLine();
