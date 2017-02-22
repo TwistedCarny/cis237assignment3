@@ -65,7 +65,7 @@ namespace cis237assignment3
 
 
         // Calculate the base cost of the droid based on which model and material was selected
-        public void CalculateBaseCost(string material, string model)
+        protected void CalculateBaseCost(string material, string model)
         {
             switch (model)
             {
