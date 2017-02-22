@@ -2,7 +2,7 @@
 ## Due: 02-22-2017
 
 ## Author
-
+Westin Curtis
 
 
 ## Description
@@ -114,7 +114,8 @@ It may be beneficial for you to create extra methods within the droid sub classe
 | Total                      | 100    |
 
 ## Outside Resources Used
-
+None
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
+No problems that I know of. I do wish that I would have made the droid collection menu based instead of having to manually type in all of the information. Didn't have the time to change it.
